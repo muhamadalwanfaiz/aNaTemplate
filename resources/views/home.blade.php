@@ -14,6 +14,12 @@
                         </div>
                     @endif
 
+                    @if ($user->roles_id == 1)
+                        Anda login sebagai Admin
+                    @else
+                        Anda login sebagai User
+                    @endif
+                    
                     {{ __('You are logged in!') }}
                 </div>
             </div>
