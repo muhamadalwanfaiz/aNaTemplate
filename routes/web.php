@@ -24,12 +24,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
+// Route::get('/home', function() {
+//     return view('home');
+// })->name('home')->middleware('auth');
 
-Route::get('/test', function () {
-    return "hello";
-})->name('home')->middleware('auth');
+// Route::get('/test', function () {
+//     return "hello";
+// })->name('home')->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home')->middleware('is_admin');
+Route::get('home.admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home')->middleware('is_admin');
+
+//MENAMPILKAN TABLE BUKU
+Route::get('admin/books', [App\Http\Controllers\AdminController::class, 'books'])->name('admin.books')->middleware('is_admin');
+
+//PENGELOLAAN BUKU
+Route::post('admin/books', [App\Http\Controllers\AdminController::class, 'submit_book'])->name('admin.book.submit')->middleware('is_admin');
