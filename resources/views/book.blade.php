@@ -14,6 +14,7 @@
         </div>
         <div class="card-body">
             <button class="btn btn-primary" data-toggle="modal" data-target="#tambahBukuModal"><i class="fa fa-plus mx-1"></i>Tambah Data</button>
+            <a href="{{ route('admin.print.books') }}" target="blank" class="btn btn-secondary"><i class="fa fa-print">Cetak PDF</i></a>
             <hr>
             <table id="table-data" class="table table-bordered">
                 <thead>
