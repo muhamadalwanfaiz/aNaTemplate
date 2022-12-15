@@ -50,3 +50,6 @@ Route::post('admin/books/delete/{id}', [App\Http\Controllers\AdminController::cl
 
 //PRINT TO PDF
 Route::get('admin/print_books', [App\Http\Controllers\AdminController::class, 'print_books'])->name('admin.print.books')->middleware('is_admin');
+
+//EXPORT EXCEL
+Route::get('admin/books/export', [App\Http\Controllers\AdminController::class, 'export'])->name('admin.books.export')->middleware('is_admin');

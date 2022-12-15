@@ -14,7 +14,11 @@
         </div>
         <div class="card-body">
             <button class="btn btn-primary" data-toggle="modal" data-target="#tambahBukuModal"><i class="fa fa-plus mx-1"></i>Tambah Data</button>
-            <a href="{{ route('admin.print.books') }}" target="blank" class="btn btn-secondary"><i class="fa fa-print">Cetak PDF</i></a>
+            <a href="{{ route('admin.print.books') }}" target="blank" class="btn btn-secondary"><i class="fa fa-print mx-1"></i>Cetak PDF</a>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="{{ route('admin.books.export') }}" class="btn btn-info" target="_blank">Export</a>
+                <a href="" class="btn btn-warning">Import</a>
+            </div>
             <hr>
             <table id="table-data" class="table table-bordered">
                 <thead>
