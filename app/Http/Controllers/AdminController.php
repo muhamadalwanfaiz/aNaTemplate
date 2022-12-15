@@ -13,6 +13,7 @@ use Illuminate\Validation\ValidationException;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\BooksExport;
+use App\Imports\BooksImport;
 
 class AdminController extends Controller
 {
@@ -137,5 +138,17 @@ class AdminController extends Controller
     public function export()
     {
         return Excel::download(new BooksExport, 'books.xlsx');
+    }
+
+    public function import(Request $req)
+    {
+        Excel::import(new BooksImport, $req->file('file'));
+
+        $notification = array(
+            'message' => 'Import data berhasil dilakukan',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('admin.books')->with($notification);
     }
 }
